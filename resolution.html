@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="resolution changing image">
+    <title>resolution changing image</title>
+    <style>
+        img {
+          width: 320px;
+        }
+      </style>
+</head>
+<body>
+    <h1>Resolution image</h1>
+    <img srcset="elva-fairy-320w.jpg, elva-fairy-480w.jpg 1.5x, elva-fairy-640w.jpg 2x" src="elva-fairy-640w.jpg" alt="elva in fairy dress" id="img" onload="showUrl()">
+    <script>
+        function showUrl() {
+          const img = document.getElementById("img");
+          const p = document.createElement("p");
+          const fileName = img.currentSrc?.substring(
+            img.currentSrc.lastIndexOf("/"),
+          );
+          p.textContent = `Loaded: ${fileName}`;
+          document.body.appendChild(p);
+        }
+      </script>
+</body>
+</html>
